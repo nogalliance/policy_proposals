@@ -6,10 +6,13 @@
     proposals_url: https://www.ripe.net/participate/policies/current-proposals/current-policy-proposals
     proposal_selector: '#current-proposals table tr:has(td.proposal_title)'
     identifier_selector: a.proposal_id
+    date_selector: .progress_inner .date
     name_selector: .proposal_info .title
     state_selector: .progress_inner p:not(p.date)
     url_selector: a.proposal_id
     url_template: https://www.ripe.net/participate/policies/proposals/{identifier}
+    date_order: DMY
+    timezone: Europe/Amsterdam
 - model: proposals.regionalinternetregistry
   pk: 2
   fields:
@@ -18,10 +21,13 @@
     proposals_url: https://politicas.lacnic.net/politicas/list
     proposal_selector: tbody tr
     identifier_selector: td:nth-child(3)
+    date_selector: td:nth-child(7)
     name_selector: td:nth-child(3)
     state_selector: td:nth-child(5)
     url_selector: ''
     url_template: detail/id/{identifier}/language/en
+    date_order: DMY
+    timezone: America/Montevideo
 - model: proposals.regionalinternetregistry
   pk: 3
   fields:
@@ -30,10 +36,13 @@
     proposals_url: https://www.arin.net/participate/policy/drafts/
     proposal_selector: tbody tr
     identifier_selector: td:nth-child(1)
+    date_selector: td:nth-child(3)
     name_selector: td:nth-child(2)
     state_selector: td:nth-child(4)
     url_selector: td:nth-child(1) a
     url_template: ''
+    date_order: MDY
+    timezone: America/New_York
 - model: proposals.regionalinternetregistry
   pk: 4
   fields:
@@ -42,10 +51,13 @@
     proposals_url: https://afrinic.net/policy/proposals
     proposal_selector: table tr:not(:first-child):not(.collapse)
     identifier_selector: td:nth-child(4)
+    date_selector: td:nth-child(5)
     name_selector: td:nth-child(2)
     state_selector: td:nth-child(6)
     url_selector: td:nth-child(2) a
     url_template: ''
+    date_order: DMY
+    timezone: Indian/Mauritius
 - model: proposals.regionalinternetregistry
   pk: 5
   fields:
@@ -54,7 +66,10 @@
     proposals_url: https://www.apnic.net/community/policy/proposals/
     proposal_selector: '#recent li'
     identifier_selector: :scope
+    date_selector: ''
     name_selector: :scope
     state_selector: :parent :previous-tag strong
     url_selector: li a
     url_template: ''
+    date_order: DMY
+    timezone: Australia/Brisbane
