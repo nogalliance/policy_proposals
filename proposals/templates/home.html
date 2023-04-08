@@ -26,6 +26,21 @@
             display: flex;
         }
 
+        footer {
+            color: white;
+            background-color: #2fade2;
+            padding: 20px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
         header h1 {
             margin: auto 0 auto 20px;
             padding: 0;
@@ -91,6 +106,10 @@
             color: #16749A;
             text-decoration: none;
         }
+
+        main table td a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -143,7 +162,14 @@
         {% endfor %}
         </tbody>
     </table>
+
 </main>
+
+<footer>
+    This list is made on a best-effort basis. If you find any errors please
+    <a href="mailto:sander@nogalliance.org?subject=Error%20in%20policy%20proposal%20list">contact
+        sander@nogalliance.org</a>!
+</footer>
 
 </body>
 </html>
