@@ -3,6 +3,7 @@ import re
 from urllib.parse import urljoin
 
 import bs4
+import dateparser
 import requests
 from bs4 import BeautifulSoup
 from django.core.management import CommandError
@@ -70,12 +71,19 @@ class Command(BaseCommand):
         else:
             rirs = RegionalInternetRegistry.objects.all()
 
-        now = timezone.now()
+        global_now = timezone.now()
 
         for rir in rirs:
             response = requests.get(rir.proposals_url)
             if not response.ok:
                 raise CommandError(f"{rir.name} Proposals URL returned {response.status_code}")
+
+            date_settings = {
+                'TIMEZONE': str(rir.timezone),
+                'RETURN_AS_TIMEZONE_AWARE': True,
+                'DATE_ORDER': rir.date_order,
+                'PREFER_LOCALE_DATE_ORDER': False,
+            }
 
             bs = BeautifulSoup(response.content, features="html5lib")
             for proposal_element in bs.css.select(rir.proposal_selector):
@@ -93,6 +101,10 @@ class Command(BaseCommand):
                 if not identifier:
                     self.stderr.write("Found a proposal without identifier, check the CSS selectors!")
                     continue
+
+                # Get the last modified date
+                date = find(proposal_element, rir.date_selector)
+                last_change = dateparser.parse(date, settings=date_settings) if date else None
 
                 # Get the state and normalise it a bit
                 state = find(proposal_element, rir.state_selector)
@@ -116,7 +128,7 @@ class Command(BaseCommand):
                     'name': name,
                     'state': state,
                     'url': url,
-                    'last_change': now
+                    'last_change': last_change or global_now
                 }, rir=rir, identifier=identifier)
 
                 updated = False
@@ -132,9 +144,15 @@ class Command(BaseCommand):
                     proposal.url = url
                     updated = True
 
+                if updated and not last_change:
+                    last_change = global_now
+
+                if last_change and proposal.last_change != last_change:
+                    proposal.last_change = last_change
+                    updated = True
+
                 if updated:
-                    proposal.last_change = now
                     proposal.save()
 
                 if created or updated:
-                    print(f"{identifier} -!- {name} -!- {state} -!- {url}")
+                    print(f"{identifier} -!- {date} -!- {name} -!- {state} -!- {url}")

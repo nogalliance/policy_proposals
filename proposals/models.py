@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django_extensions.db.fields import AutoSlugField
+from timezone_field import TimeZoneField
 
 
 class RegionalInternetRegistry(models.Model):
@@ -11,6 +12,8 @@ class RegionalInternetRegistry(models.Model):
                                          help_text=_('CSS selector that selects one proposal per match'))
     identifier_selector = models.CharField(verbose_name=_('Identifier selector'), max_length=100, blank=True,
                                            help_text=_('CSS selector that selects the identifier of one proposal'))
+    date_selector = models.CharField(verbose_name=_('Date selector'), max_length=100, blank=True,
+                                     help_text=_('CSS selector that selects the last modified date of one proposal'))
     name_selector = models.CharField(verbose_name=_('Name selector'), max_length=100, blank=True,
                                      help_text=_('CSS selector that selects the name of one proposal'))
     state_selector = models.CharField(verbose_name=_('State selector'), max_length=100, blank=True,
@@ -19,6 +22,12 @@ class RegionalInternetRegistry(models.Model):
                                     help_text=_('CSS selector that selects the URL of one proposal'))
     url_template = models.CharField(verbose_name=_('URL template'), max_length=100, blank=True,
                                     help_text=_('Template for converting a proposal into a URL'))
+    date_order = models.CharField(verbose_name=_('Date order'), max_length=3, choices=(
+        ('DMY', 'DMY'),
+        ('MDY', 'MDY'),
+        ('YMD', 'YMD')
+    ), default='DMY')
+    timezone = TimeZoneField(verbose_name=_('Time zone'), default='UTC')
 
     def __str__(self):
         return self.name
