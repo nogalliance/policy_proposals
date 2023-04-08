@@ -82,6 +82,11 @@
         .last_change {
             white-space: nowrap;
         }
+
+        main table td a {
+            color: #16749A;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -118,7 +123,7 @@
             <th>RIR</th>
             <th>Identifier</th>
             <th>Name</th>
-            <th>State</th>
+            <th>Current state</th>
             <th>Last change</th>
         </tr>
         </thead>
@@ -126,8 +131,8 @@
         {% for proposal in proposals %}
             <tr>
                 <td class="rir">{{ proposal.rir.name }}</td>
-                <td class="identifier">{{ proposal.identifier }}</td>
-                <td class="name">{{ proposal.name }}</td>
+                <td class="identifier"><a target="_blank" href="{{ proposal.url }}">{{ proposal.identifier }}</a></td>
+                <td class="name"><a target="_blank" href="{{ proposal.url }}">{{ proposal.name }}</a></td>
                 <td class="state">{{ proposal.state }}</td>
                 <td class="last_change">{{ proposal.last_change }}</td>
             </tr>
