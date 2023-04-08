@@ -27,7 +27,7 @@ class Home(TemplateView):
             if state['enabled']:
                 selected_states.append(state_name)
 
-        proposals = PolicyProposal.objects.filter(state__in=selected_states).order_by('-last_change')
+        proposals = PolicyProposal.objects.filter(state__in=selected_states).order_by('-last_change', 'identifier')
 
         return {
             'states': states,
