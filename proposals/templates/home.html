@@ -153,7 +153,7 @@
         <tbody>
         {% for proposal in proposals %}
             <tr>
-                <td class="rir">{{ proposal.rir.name }}</td>
+                <td class="rir"><a target="_blank" href="{{ proposal.rir.proposals_url }}">{{ proposal.rir.name }}</a></td>
                 <td class="identifier"><a target="_blank" href="{{ proposal.url }}">{{ proposal.identifier }}</a></td>
                 <td class="name"><a target="_blank" href="{{ proposal.url }}">{{ proposal.name }}</a></td>
                 <td class="state">{{ proposal.state }}</td>
