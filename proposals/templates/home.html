@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>RIR Policy Proposal Overview</title>
+    <link rel="canonical" href="https://policies.nogalliance.org/"/>
+
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        header {
+            color: white;
+            background-color: #2fade2;
+            height: 80px;
+            display: flex;
+        }
+
+        header h1 {
+            margin: auto 0 auto 20px;
+            padding: 0;
+            flex-grow: 1;
+        }
+
+        header img {
+            background: white;
+            height: 60px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        main menu {
+            padding: 0;
+            margin: 0;
+            column-width: 15em;
+        }
+
+        main table {
+            width: 100%;
+            padding: 0;
+            margin: 2em 0 0 0;
+        }
+
+        main table th {
+            border-bottom: 1px solid gray;
+            text-align: left;
+            padding: 1px 10px 1px 0;
+        }
+
+        main table td {
+            padding: 1px 10px 1px 0;
+            border-bottom: 1px solid lightgray;
+        }
+
+        main table th:last-child,
+        main table td:last-child {
+            padding-right: 0;
+        }
+
+        .rir {
+            white-space: nowrap;
+        }
+
+        .identifier {
+            white-space: nowrap;
+        }
+
+        .state {
+            white-space: nowrap;
+        }
+
+        .last_change {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>RIR Policy Proposal Overview</h1>
+    <a href="https://nogalliance.org/">
+        <img alt="GNA logo"
+             src="{% static 'logo.png' %}">
+    </a>
+</header>
+
+<main>
+    <form>
+        <menu>
+            {% for state in states %}
+                <label>
+                    <input type="checkbox"
+                           value="on"
+                           onchange="this.form.submit()"
+                           name="{{ state.key }}" {% if state.enabled %}checked{% endif %}>
+                    {{ state.name }}
+                </label><br>
+            {% endfor %}
+        </menu>
+    </form>
+
+    <form>
+        <button>Reset filters</button>
+    </form>
+
+    <table>
+        <thead>
+        <tr>
+            <th>RIR</th>
+            <th>Identifier</th>
+            <th>Name</th>
+            <th>State</th>
+            <th>Last change</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for proposal in proposals %}
+            <tr>
+                <td class="rir">{{ proposal.rir.name }}</td>
+                <td class="identifier">{{ proposal.identifier }}</td>
+                <td class="name">{{ proposal.name }}</td>
+                <td class="state">{{ proposal.state }}</td>
+                <td class="last_change">{{ proposal.last_change }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</main>
+
+</body>
+</html>
