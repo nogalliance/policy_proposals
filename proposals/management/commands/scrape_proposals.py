@@ -77,7 +77,7 @@ class Command(BaseCommand):
             if not response.ok:
                 raise CommandError(f"{rir.name} Proposals URL returned {response.status_code}")
 
-            bs = BeautifulSoup(response.text, features="html5lib")
+            bs = BeautifulSoup(response.content, features="html5lib")
             for proposal_element in bs.css.select(rir.proposal_selector):
                 identifier = find(proposal_element, rir.identifier_selector)
 
