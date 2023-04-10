@@ -157,7 +157,7 @@
                 <td class="identifier"><a target="_blank" href="{{ proposal.url }}">{{ proposal.identifier }}</a></td>
                 <td class="name"><a target="_blank" href="{{ proposal.url }}">{{ proposal.name }}</a></td>
                 <td class="state">{{ proposal.state }}</td>
-                <td class="last_change">{{ proposal.last_change }}</td>
+                <td class="last_change">{{ proposal.last_change|date:"Y-m-d" }}</td>
             </tr>
         {% endfor %}
         </tbody>
