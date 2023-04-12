@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.nro.net/rir-proposal-exchange",
+  "authority": "ARIN",
+  "published": "2023-04-11T00:00:00Z",
+  "proposals": [
+    {
+      "id": "",
+      "title": "",
+      "topics": [
+        ""
+      ],
+      "versions": [
+        {
+          "version": "",
+          "url": "",
+          "publication-date": ""
+        }
+      ],
+      "working-group": "",
+      "working-group-url": "",
+      "discussion-urls": [
+        ""
+      ],
+      "current-phase": "",
+      "current-phase-start": "",
+      "current-phase-end": "",
+      "current-state": ""
+    }
+  ]
+}

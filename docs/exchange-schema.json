@@ -1,0 +1,202 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://schema.nro.net/rir-proposal-exchange",
+  "$comment": "Documents according to this schema should be written in English",
+  "title": "RIR Proposal Exchange Format",
+  "description": "A common format to share information about policy proposals between RIRs",
+  "type": "object",
+  "definitions": {
+    "rir": {
+      "title": "RIR",
+      "description": "Regional Internet Registry",
+      "type": "string",
+      "enum": [
+        "AFRINIC",
+        "APNIC",
+        "ARIN",
+        "LACNIC",
+        "RIPE NCC"
+      ]
+    },
+    "topic": {
+      "type": "string",
+      "enum": [
+        "ASN",
+        "Database",
+        "IPv4",
+        "IPv6",
+        "IXP",
+        "Transfer"
+      ]
+    },
+    "phase": {
+      "title": "Phase",
+      "description": "Policy Development Process Phase",
+      "type": "string",
+      "$comment": "Different RIRs use different workflows, we use this generic terminology for each RIR's PDP Phases",
+      "$comment": "AFRINIC: Draft Policy (= Discussion) -> Last-call -> Ratification -> Implementation -> Implemented",
+      "$comment": "APNIC: Discussion -> Last-call -> Board Endorsement (Ratification) -> Implementation -> Implemented",
+      "$comment": "ARIN: Policy Proposal (= Discussion) -> Draft Policy (= Review) -> Recommended Draft Policy (= Recommended) -> Last-call -> Board Review (Ratification) -> Implementation -> Implemented",
+      "$comment": "LACNIC: Discussion -> Last-call -> Ratification -> Implementation -> Implemented",
+      "$comment": "RIPE NCC: Discussion -> Review -> Last-call -> Implementation -> Implemented",
+      "enum": [
+        "Discussion",
+        "Review",
+        "Recommended",
+        "Last-call",
+        "Ratification",
+        "Implementation",
+        "Implemented",
+        "Withdrawn"
+      ]
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "Open for discussion",
+        "Awaiting updated version",
+        "Awaiting documentation",
+        "Awaiting decision",
+        "On hold",
+        "Concluded"
+      ]
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "minLength": 10,
+      "maxLength": 10,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}"
+    },
+    "date-time": {
+      "type": "string",
+      "format": "date-time",
+      "minLength": 20,
+      "maxLength": 25,
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?(Z|[+-][0-9]{2}:[0-9]{2}$)"
+    },
+    "url": {
+      "type": "string",
+      "format": "iri",
+      "minLength": 10,
+      "$comment": "Explicitly disallow http: URLs",
+      "pattern": "^(?!http://)"
+    }
+  },
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "https://schema.nro.net/rir-proposal-exchange"
+    },
+    "authority": {
+      "$ref": "#/definitions/rir"
+    },
+    "published": {
+      "$ref": "#/definitions/date-time"
+    },
+    "proposals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "uniqueItems": true,
+        "properties": {
+          "id": {
+            "title": "ID",
+            "description": "The proposal identifier as defined by the RIR",
+            "type": "string",
+            "minLength": 1
+          },
+          "previous-id": {
+            "title": "Previous ID",
+            "description": "When a policy proposal turns into a draft, some RIRs give it a different identifier",
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "title": "Title",
+            "description": "The title of the proposal",
+            "type": "string",
+            "minLength": 1
+          },
+          "topics": {
+            "title": "Topics",
+            "description": "A list of common topics relevant to this policy proposal",
+            "type": "array",
+            "items": {"$ref": "#/definitions/topic"},
+            "uniqueItems": true
+          },
+          "versions": {
+            "title": "Versions",
+            "description": "A list of versions in reverse chronological order (newest first)",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "properties": {
+                "version": {"type": "string", "minLength": 1},
+                "url": {"$ref": "#/definitions/url"},
+                "publication-date": {"$ref": "#/definitions/date"}
+              },
+              "required": ["version", "url"]
+            }
+          },
+          "working-group": {
+            "title": "Working Group",
+            "description": "The working group that this policy proposal is discussed in",
+            "type": "string"
+          },
+          "working-group-url": {
+            "title": "Working Group URL",
+            "description": "Link to the generic page about the working group",
+            "$ref": "#/definitions/url"
+          },
+          "discussion-urls": {
+            "type": "array",
+            "items": {"$ref": "#/definitions/url"}
+          },
+          "current-phase": {
+            "title": "Current phase",
+            "description": "Policy Development Process phase",
+            "$ref": "#/definitions/phase"
+          },
+          "current-phase-start": {
+            "title": "Current phase start",
+            "description": "The start date of the current phase (may be in the future)",
+            "$ref": "#/definitions/date"
+          },
+          "current-phase-end": {
+            "title": "Current phase end",
+            "description": "The start date of the current phase (may be in the past)",
+            "$ref": "#/definitions/date"
+          },
+          "current-state": {
+            "title": "Current state",
+            "description": "Policy Development Process state within the current phase",
+            "$ref": "#/definitions/state"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "versions",
+          "current-phase",
+          "current-state"
+        ],
+        "allOf": [
+          {
+            "$comment": "Don't specify a working group URL without naming the working group",
+            "if": {"required": ["working-group-url"]},
+            "then": {"required": ["working-group"]}
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "$schema",
+    "authority",
+    "published",
+    "proposals"
+  ]
+}

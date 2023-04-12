@@ -1,0 +1,137 @@
+{
+  "$schema": "https://schema.nro.net/rir-proposal-exchange",
+  "authority": "RIPE NCC",
+  "published": "2023-04-11T00:00:00Z",
+  "proposals": [
+    {
+      "id": "2023-01",
+      "title": "Reducing IXP IPv4 assignment default size to a /26",
+      "topics": [
+        "IPv4",
+        "IXP"
+      ],
+      "versions": [
+        {
+          "version": "2.0",
+          "url": "https://www.ripe.net/participate/policies/proposals/2023-01/?version=2",
+          "publication-date": "2023-02-09"
+        },
+        {
+          "version": "1.0",
+          "url": "https://www.ripe.net/participate/policies/proposals/2023-01/?version=1",
+          "publication-date": "2022-12-19"
+        }
+      ],
+      "working-group": "Address Policy Working Group",
+      "working-group-url": "https://www.ripe.net/participate/ripe/wg/active-wg/ap",
+      "discussion-urls": [
+        "https://www.ripe.net/ripe/mail/archives/address-policy-wg/",
+        "https://www.ripe.net/participate/mail/forum/address-policy-wg"
+      ],
+      "current-phase": "Discussion",
+      "current-phase-start": "2023-03-06",
+      "current-phase-end": "2023-04-04",
+      "current-state": "Awaiting decision"
+    },
+    {
+      "id": "2023-02",
+      "title": "Minimum Size for IPv4 Temporary Assignments",
+      "topics": [
+        "IPv4"
+      ],
+      "versions": [
+        {
+          "version": "1.0",
+          "url": "https://www.ripe.net/participate/policies/proposals/2023-02/?version=1",
+          "publication-date": "2023-01-26"
+        }
+      ],
+      "working-group": "Address Policy Working Group",
+      "working-group-url": "https://www.ripe.net/participate/ripe/wg/active-wg/ap",
+      "discussion-urls": [
+        "https://www.ripe.net/ripe/mail/archives/address-policy-wg/",
+        "https://www.ripe.net/participate/mail/forum/address-policy-wg"
+      ],
+      "current-phase": "Review",
+      "current-phase-start": "2023-04-03",
+      "current-phase-end": "2023-05-02",
+      "current-state": "Open for discussion"
+    },
+    {
+      "id": "2023-03",
+      "title": "Voluntary Transfer Lock",
+      "topics": [
+        "Transfer"
+      ],
+      "versions": [
+        {
+          "version": "1.0",
+          "url": "https://www.ripe.net/participate/policies/proposals/2023-03/?version=1",
+          "publication-date": "2023-02-21"
+        }
+      ],
+      "working-group": "RIPE NCC Services Working Group",
+      "working-group-url": "https://www.ripe.net/participate/ripe/wg/active-wg/services",
+      "discussion-urls": [
+        "https://www.ripe.net/ripe/mail/archives/ncc-services-wg/",
+        "https://www.ripe.net/participate/mail/forum/ncc-services-wg"
+      ],
+      "current-phase": "Discussion",
+      "current-phase-start": "2023-03-08",
+      "current-phase-end": "2023-04-06",
+      "current-state": "Awaiting decision"
+    },
+    {
+      "id": "2022-02",
+      "title": "Remove mandatory IPv4 PA assignment registration in the RIPE Database",
+      "topics": [
+        "IPv4"
+      ],
+      "versions": [
+        {
+          "version": "1.0",
+          "url": "https://www.ripe.net/participate/policies/proposals/2022-02/?version=1",
+          "publication-date": "2022-09-27"
+        }
+      ],
+      "working-group": "Address Policy Working Group",
+      "working-group-url": "https://www.ripe.net/participate/ripe/wg/active-wg/ap",
+      "discussion-urls": [
+        "https://www.ripe.net/ripe/mail/archives/address-policy-wg/",
+        "https://www.ripe.net/participate/mail/forum/address-policy-wg"
+      ],
+      "current-phase": "Withdrawn",
+      "current-phase-start": "2022-11-30",
+      "current-state": "Concluded"
+    },
+    {
+      "id": "2022-01",
+      "title": "Personal Data in the RIPE Database",
+      "topics": [
+        "Database"
+      ],
+      "versions": [
+        {
+          "version": "3.0",
+          "url": "https://www.ripe.net/participate/policies/proposals/2022-01/?version=3",
+          "publication-date": "2022-10-06"
+        },
+        {
+          "version": "2.0",
+          "url": "https://www.ripe.net/participate/policies/proposals/2022-01/?version=2",
+          "publication-date": "2022-06-07"
+        },
+        {
+          "version": "1.0",
+          "url": "https://www.ripe.net/participate/policies/proposals/2022-01/?version=1",
+          "publication-date": "2022-04-11"
+        }
+      ],
+      "working-group": "Database Working Group",
+      "working-group-url": "https://www.ripe.net/participate/ripe/wg/active-wg/db",
+      "current-phase": "Withdrawn",
+      "current-phase-start": "2022-11-17",
+      "current-state": "Concluded"
+    }
+  ]
+}
