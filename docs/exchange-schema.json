@@ -96,9 +96,9 @@
     },
     "proposals": {
       "type": "array",
+      "uniqueItems": true,
       "items": {
         "type": "object",
-        "uniqueItems": true,
         "properties": {
           "id": {
             "title": "ID",
