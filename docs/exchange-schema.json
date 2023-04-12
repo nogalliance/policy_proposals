@@ -127,7 +127,7 @@
           },
           "versions": {
             "title": "Versions",
-            "description": "A list of versions in reverse chronological order (newest first)",
+            "description": "A list of versions in chronological order (oldest first)",
             "type": "array",
             "minItems": 1,
             "uniqueItems": true,

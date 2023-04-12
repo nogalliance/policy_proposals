@@ -12,14 +12,14 @@
       ],
       "versions": [
         {
-          "version": "2.0",
-          "url": "https://www.ripe.net/participate/policies/proposals/2023-01/?version=2",
-          "publication-date": "2023-02-09"
-        },
-        {
           "version": "1.0",
           "url": "https://www.ripe.net/participate/policies/proposals/2023-01/?version=1",
           "publication-date": "2022-12-19"
+        },
+        {
+          "version": "2.0",
+          "url": "https://www.ripe.net/participate/policies/proposals/2023-01/?version=2",
+          "publication-date": "2023-02-09"
         }
       ],
       "working-group": "Address Policy Working Group",
@@ -112,9 +112,9 @@
       ],
       "versions": [
         {
-          "version": "3.0",
-          "url": "https://www.ripe.net/participate/policies/proposals/2022-01/?version=3",
-          "publication-date": "2022-10-06"
+          "version": "1.0",
+          "url": "https://www.ripe.net/participate/policies/proposals/2022-01/?version=1",
+          "publication-date": "2022-04-11"
         },
         {
           "version": "2.0",
@@ -122,9 +122,9 @@
           "publication-date": "2022-06-07"
         },
         {
-          "version": "1.0",
-          "url": "https://www.ripe.net/participate/policies/proposals/2022-01/?version=1",
-          "publication-date": "2022-04-11"
+          "version": "3.0",
+          "url": "https://www.ripe.net/participate/policies/proposals/2022-01/?version=3",
+          "publication-date": "2022-10-06"
         }
       ],
       "working-group": "Database Working Group",
