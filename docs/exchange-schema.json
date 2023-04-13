@@ -157,20 +157,6 @@
               "required": ["version", "url"]
             }
           },
-          "working-group": {
-            "title": "Working Group",
-            "description": "The working group that this policy proposal is discussed in",
-            "type": "string"
-          },
-          "working-group-url": {
-            "title": "Working Group URL",
-            "description": "Link to the generic page about the working group",
-            "$ref": "#/definitions/url"
-          },
-          "discussion-urls": {
-            "type": "array",
-            "items": {"$ref": "#/definitions/url"}
-          },
           "current-phase": {
             "title": "Current phase",
             "description": "Policy Development Process phase",
@@ -182,8 +168,8 @@
             "$ref": "#/definitions/date"
           },
           "current-phase-end": {
-            "title": "Current phase end",
-            "description": "The start date of the current phase (may be in the past)",
+            "title": "Current phase planned end",
+            "description": "The planned end date of the current phase (may be in the past)",
             "$ref": "#/definitions/date"
           },
           "current-state": {

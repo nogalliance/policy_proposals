@@ -26,9 +26,6 @@
           "publication-date": "2021-11-22"
         }
       ],
-      "discussion-urls": [
-        "https://lists.afrinic.net/mailman/listinfo.cgi/rpd"
-      ],
       "current-phase": "Ratification",
       "current-phase-start": "2022-01-05",
       "current-state": "Awaiting decision"
@@ -55,9 +52,6 @@
           "url": "https://afrinic.net/policy/proposals/2019-gen-006-d3",
           "publication-date": "2021-04-19"
         }
-      ],
-      "discussion-urls": [
-        "https://lists.afrinic.net/mailman/listinfo.cgi/rpd"
       ],
       "current-phase": "Implementation",
       "current-phase-start": "2022-01-26",
@@ -110,9 +104,6 @@
           "url": "https://afrinic.net/policy/proposals/2018-gen-001-d8",
           "publication-date": "2022-05-15"
         }
-      ],
-      "discussion-urls": [
-        "https://lists.afrinic.net/mailman/listinfo.cgi/rpd"
       ],
       "current-phase": "Ratification",
       "current-phase-start": "2022-08-09",

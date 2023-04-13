@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schema.nro.net/rir-proposal-exchange",
+  "authority": "LACNIC",
+  "published": "2023-04-11T00:00:00Z",
+  "proposals": [
+    {
+      "id": "LAC-2022-4",
+      "title": "PDP Chair Elections",
+      "versions": [
+        {
+          "version": "1",
+          "url": "https://politicas.lacnic.net/politicas/detail/id/LAC-2022-4/language/en",
+          "publication-date": "2022-08-17"
+        }
+      ],
+      "current-phase": "Implemented",
+      "current-phase-start": "2022-12-20",
+      "current-state": "Concluded"
+    }
+  ]
+}
