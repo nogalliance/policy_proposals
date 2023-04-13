@@ -61,11 +61,12 @@
       "$comment": "When a proposal is between phases, it is recommended to list the upcoming phase instead of the concluded phase",
       "$comment": "Concluded is mostly intended for end-phases like Implemented and Withdrawn",
       "enum": [
-        "Open for discussion",
+        "Under discussion",
         "Awaiting decision",
         "Awaiting documentation",
         "Awaiting implementation",
         "Awaiting updated version",
+        "Under Appeal",
         "On hold",
         "Concluded"
       ]
