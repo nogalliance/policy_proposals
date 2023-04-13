@@ -1,0 +1,122 @@
+{
+  "$schema": "https://schema.nro.net/rir-proposal-exchange",
+  "authority": "AFRINIC",
+  "published": "2023-04-11T00:00:00Z",
+  "proposals": [
+    {
+      "id": "AFPUB-2020-GEN-006",
+      "title": "AFRINIC Number Resources Transfer Policy",
+      "topics": [
+        "Transfer"
+      ],
+      "versions": [
+        {
+          "version": "D1",
+          "url": "https://afrinic.net/policy/proposals/2020-gen-006-d1",
+          "publication-date": "2020-10-17"
+        },
+        {
+          "version": "D2",
+          "url": "https://afrinic.net/policy/proposals/2020-gen-006-d2",
+          "publication-date": "2021-10-08"
+        },
+        {
+          "version": "D3",
+          "url": "https://afrinic.net/policy/proposals/2020-gen-006-d3",
+          "publication-date": "2021-11-22"
+        }
+      ],
+      "discussion-urls": [
+        "https://lists.afrinic.net/mailman/listinfo.cgi/rpd"
+      ],
+      "current-phase": "Ratification",
+      "current-phase-start": "2022-01-05",
+      "current-state": "Awaiting decision"
+    },
+    {
+      "id": "AFPUB-2019-GEN-006",
+      "title": "RPKI ROAs for Unallocated and Unassigned AFRINIC Address Space",
+      "topics": [
+        "RPKI"
+      ],
+      "versions": [
+        {
+          "version": "D1",
+          "url": "https://afrinic.net/policy/proposals/2019-gen-006-d1",
+          "publication-date": "2019-11-04"
+        },
+        {
+          "version": "D2",
+          "url": "https://afrinic.net/policy/proposals/2019-gen-006-d2",
+          "publication-date": "2020-06-30"
+        },
+        {
+          "version": "D3",
+          "url": "https://afrinic.net/policy/proposals/2019-gen-006-d3",
+          "publication-date": "2021-04-19"
+        }
+      ],
+      "discussion-urls": [
+        "https://lists.afrinic.net/mailman/listinfo.cgi/rpd"
+      ],
+      "current-phase": "Implementation",
+      "current-phase-start": "2022-01-26",
+      "current-state": "Awaiting implementation"
+    },
+    {
+      "id": "AFPUB-2018-GEN-001",
+      "title": "Abuse Contact Policy Update",
+      "topics": [
+        "Abuse"
+      ],
+      "versions": [
+        {
+          "version": "D1",
+          "url": "https://afrinic.net/policy/2018-gen-001-d1?lang=en-GB",
+          "publication-date": "2018-08-12"
+        },
+        {
+          "version": "D2",
+          "url": "https://afrinic.net/policy/2018-gen-001-d2?lang=en-GB",
+          "publication-date": "2018-11-20"
+        },
+        {
+          "version": "D3",
+          "url": "https://afrinic.net/policy/proposals/2018-gen-001-d3",
+          "publication-date": "2018-06-05"
+        },
+        {
+          "version": "D4",
+          "url": "https://afrinic.net/policy/proposals/2018-gen-001-d4",
+          "publication-date": "2019-11-02"
+        },
+        {
+          "version": "D5",
+          "url": "https://afrinic.net/policy/proposals/2018-gen-001-d5",
+          "publication-date": "2019-11-21"
+        },
+        {
+          "version": "D6",
+          "url": "https://afrinic.net/policy/proposals/2018-gen-001-d6",
+          "publication-date": "2020-08-05"
+        },
+        {
+          "version": "D7",
+          "url": "https://afrinic.net/policy/proposals/2018-gen-001-d7",
+          "publication-date": "2021-05-17"
+        },
+        {
+          "version": "D8",
+          "url": "https://afrinic.net/policy/proposals/2018-gen-001-d8",
+          "publication-date": "2022-05-15"
+        }
+      ],
+      "discussion-urls": [
+        "https://lists.afrinic.net/mailman/listinfo.cgi/rpd"
+      ],
+      "current-phase": "Ratification",
+      "current-phase-start": "2022-08-09",
+      "current-state": "Awaiting decision"
+    }
+  ]
+}
