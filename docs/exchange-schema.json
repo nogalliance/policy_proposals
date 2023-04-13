@@ -182,6 +182,7 @@
           "title",
           "versions",
           "current-phase",
+          "current-phase-start",
           "current-state"
         ],
         "allOf": [
