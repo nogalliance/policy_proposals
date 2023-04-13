@@ -6,6 +6,10 @@
     {
       "id": "LAC-2022-4",
       "title": "PDP Chair Elections",
+      "topics": [
+        "PDP",
+        "Organisational"
+      ],
       "versions": [
         {
           "version": "1",
@@ -15,6 +19,47 @@
       ],
       "current-phase": "Implemented",
       "current-phase-start": "2022-12-20",
+      "current-state": "Concluded"
+    },
+    {
+      "id": "LAC-2022-3",
+      "title": "Managing Recovered Resources that were originally part of the Reserve for Critical Infrastructure",
+      "topics": [
+        "IPv4",
+        "IPv6"
+      ],
+      "versions": [
+        {
+          "version": "1",
+          "url": "https://politicas.lacnic.net/politicas/detail/id/LAC-2022-3/language/en",
+          "publication-date": "2022-08-08"
+        }
+      ],
+      "current-phase": "Ratification",
+      "current-phase-start": "2022-11-28",
+      "current-state": "Awaiting decision"
+    },
+    {
+      "id": "LAC-2022-2",
+      "title": "Clarification: The lease of resources is not allowed under the policies in force",
+      "topics": [
+        "Editorial",
+        "Leasing"
+      ],
+      "versions": [
+        {
+          "version": "1",
+          "url": "https://politicas.lacnic.net/politicas/detail/id/LAC-2022-2/language/en",
+          "publication-date": "2022-03-22"
+        },
+        {
+          "version": "2",
+          "url": "https://politicas.lacnic.net/politicas/detail/id/LAC-2022-2/language/en",
+          "publication-date": "2022-08-31"
+        }
+      ],
+      "current-phase": "Withdrawn",
+      "current-phase-start": "2022-11-09",
       "current-state": "Concluded"
     }
   ]

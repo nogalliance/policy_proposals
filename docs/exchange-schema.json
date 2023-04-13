@@ -28,7 +28,9 @@
         "IPv4",
         "IPv6",
         "IXP",
+        "Organisational",
         "Transfer",
+        "PDP",
         "RPKI"
       ]
     },
@@ -66,7 +68,7 @@
         "Awaiting documentation",
         "Awaiting implementation",
         "Awaiting updated version",
-        "Under Appeal",
+        "Under appeal",
         "On hold",
         "Concluded"
       ]
@@ -132,14 +134,15 @@
             "title": "Topics",
             "description": "A list of common topics relevant to this policy proposal",
             "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
             "items": {
               "$comment": "Please use defined topics where possible",
               "anyOf": [
                 {"$ref": "#/definitions/topic"},
                 {"type": "string", "minLength": 1}
               ]
-            },
-            "uniqueItems": true
+            }
           },
           "versions": {
             "title": "Versions",
@@ -154,7 +157,7 @@
                 "url": {"$ref": "#/definitions/url"},
                 "publication-date": {"$ref": "#/definitions/date"}
               },
-              "required": ["version", "url"]
+              "required": ["version", "url", "publication-date"]
             }
           },
           "current-phase": {

@@ -1,0 +1,135 @@
+{
+  "$schema": "https://schema.nro.net/rir-proposal-exchange",
+  "authority": "APNIC",
+  "published": "2023-04-11T00:00:00Z",
+  "proposals": [
+    {
+      "id": "prop-145",
+      "title": "Single Source for Definitions",
+      "versions": [
+        {
+          "version": "1",
+          "url": "https://www.apnic.net/wp-content/uploads/2022/08/prop-145-v001.txt",
+          "publication-date": "2022-08-11"
+        }
+      ],
+      "current-phase": "Implementation",
+      "current-phase-start": "2022-11-17",
+      "current-state": "Awaiting implementation"
+    },
+    {
+      "id": "prop-146",
+      "title": "Aligning the Contrast",
+      "versions": [
+        {
+          "version": "1",
+          "url": "https://www.apnic.net/wp-content/uploads/2022/08/prop-146-v001.txt",
+          "publication-date": "2022-08-11"
+        }
+      ],
+      "current-phase": "Implementation",
+      "current-phase-start": "2022-12-22",
+      "current-state": "Concluded"
+    },
+    {
+      "id": "prop-147",
+      "title": "Historical Resources Management",
+      "versions": [
+        {
+          "version": "1",
+          "url": "https://www.apnic.net/wp-content/uploads/2022/08/prop-147-v001.txt",
+          "publication-date": "2022-08-11"
+        },
+        {
+          "version": "2",
+          "url": "https://www.apnic.net/wp-content/uploads/2022/08/prop-147-v002.txt",
+          "publication-date": "2022-08-24"
+        },
+        {
+          "version": "3",
+          "url": "https://www.apnic.net/wp-content/uploads/2022/08/prop-147-v003.txt",
+          "publication-date": "2023-01-20"
+        },
+        {
+          "version": "4",
+          "url": "https://www.apnic.net/wp-content/uploads/2022/08/prop-147-v004.txt",
+          "publication-date": "2023-02-28"
+        }
+      ],
+      "current-phase": "Last-call",
+      "current-phase-start": "2023-04-11",
+      "current-state": "Awaiting decision"
+    },
+    {
+      "id": "prop-148",
+      "title": "Clarification – Leasing of Resources is not Acceptable",
+      "versions": [
+        {
+          "version": "1",
+          "url": "https://www.apnic.net/wp-content/uploads/2022/08/prop-148-v001.txt",
+          "publication-date": "2022-08-11"
+        },
+        {
+          "version": "2",
+          "url": "https://www.apnic.net/wp-content/uploads/2022/08/prop-148-v002.txt",
+          "publication-date": "2022-08-26"
+        },
+        {
+          "version": "3",
+          "url": "https://www.apnic.net/wp-content/uploads/2022/08/prop-148-v003.txt",
+          "publication-date": "2022-09-14"
+        }
+      ],
+      "current-phase": "Discussion",
+      "current-phase-start": "2022-09-19",
+      "current-state": "Under discussion"
+    },
+    {
+      "id": "prop-149",
+      "title": "Change of maximum delegation for less than /21 total IPv4 holdings",
+      "versions": [
+        {
+          "version": "1",
+          "url": "https://www.apnic.net/wp-content/uploads/2023/01/prop-149-v001.txt",
+          "publication-date": "2023-01-20"
+        }
+      ],
+      "current-phase": "Discussion",
+      "current-phase-start": "2023-03-01",
+      "current-state": "Under discussion"
+    },
+    {
+      "id": "prop-150",
+      "title": "ROA/whois object with Private, Reserved and Unallocated (reserved/available) Origin ASN",
+      "versions": [
+        {
+          "version": "1",
+          "url": "https://www.apnic.net/wp-content/uploads/2023/01/prop-150-v001.txt",
+          "publication-date": "2023-01-20"
+        },
+        {
+          "version": "2",
+          "url": "https://www.apnic.net/wp-content/uploads/2023/01/prop-150-v002.txt",
+          "publication-date": "2023-01-30"
+        }
+      ],
+      "current-phase": "Last-call",
+      "current-phase-start": "2023-04-11",
+      "current-state": "Awaiting decision"
+    },
+    {
+      "id": "prop-151",
+      "title": "Restricting non-hierarchical as-set",
+      "versions": [
+        {
+          "version": "1",
+          "url": "https://www.apnic.net/wp-content/uploads/2023/01/prop-151-v001.txt",
+          "publication-date": "2023-01-20"
+        }
+      ],
+      "current-phase": "Last-call",
+      "current-phase-start": "2023-04-11",
+      "current-state": "Awaiting decision"
+    }
+  ]
+}
