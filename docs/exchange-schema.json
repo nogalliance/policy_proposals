@@ -23,6 +23,7 @@
       "enum": [
         "ASN",
         "Database",
+        "Editorial",
         "IPv4",
         "IPv6",
         "IXP",
