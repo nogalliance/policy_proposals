@@ -27,7 +27,8 @@
         "IPv4",
         "IPv6",
         "IXP",
-        "Transfer"
+        "Transfer",
+        "RPKI"
       ]
     },
     "phase": {
@@ -55,9 +56,10 @@
       "type": "string",
       "enum": [
         "Open for discussion",
-        "Awaiting updated version",
-        "Awaiting documentation",
         "Awaiting decision",
+        "Awaiting documentation",
+        "Awaiting implementation",
+        "Awaiting updated version",
         "On hold",
         "Concluded"
       ]
@@ -123,7 +125,13 @@
             "title": "Topics",
             "description": "A list of common topics relevant to this policy proposal",
             "type": "array",
-            "items": {"$ref": "#/definitions/topic"},
+            "items": {
+              "$comment": "Please use defined topics where possible",
+              "anyOf": [
+                {"$ref": "#/definitions/topic"},
+                {"type": "string", "minLength": 1}
+              ]
+            },
             "uniqueItems": true
           },
           "versions": {
