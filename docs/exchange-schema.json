@@ -21,6 +21,7 @@
     "topic": {
       "type": "string",
       "enum": [
+        "Abuse",
         "ASN",
         "Database",
         "Editorial",
@@ -41,6 +42,7 @@
       "$comment": "ARIN: Policy Proposal (= Discussion) -> Draft Policy (= Review) -> Recommended Draft Policy (= Recommended) -> Last-call -> Board Review (Ratification) -> Implementation -> Implemented",
       "$comment": "LACNIC: Discussion -> Last-call -> Ratification -> Implementation -> Implemented",
       "$comment": "RIPE NCC: Discussion -> Review -> Last-call -> Implementation -> Implemented",
+      "$comment": "When a proposal is between phases, it is recommended to list the upcoming phase instead of the concluded phase",
       "enum": [
         "Discussion",
         "Review",
@@ -54,6 +56,10 @@
     },
     "state": {
       "type": "string",
+      "description": "The state within the PDP Phase",
+      "$comment": "Not all states make sense for all phases, use them sensibly",
+      "$comment": "When a proposal is between phases, it is recommended to list the upcoming phase instead of the concluded phase",
+      "$comment": "Concluded is mostly intended for end-phases like Implemented and Withdrawn",
       "enum": [
         "Open for discussion",
         "Awaiting decision",
