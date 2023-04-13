@@ -103,7 +103,7 @@
         "properties": {
           "id": {
             "title": "ID",
-            "description": "The proposal identifier as defined by the RIR",
+            "description": "The proposal identifier as defined by the RIR, without any version suffixes",
             "type": "string",
             "minLength": 1
           },
