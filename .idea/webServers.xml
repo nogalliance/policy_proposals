@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e962ef6c-454f-4e66-a39a-b5bb82a53d17" name="proposals@ipv6.steffann.nl" url="https://proposals.nogalliance.org">
+        <fileTransfer rootFolder="/home/proposals" accessType="SFTP" host="ipv6.steffann.nl" port="22" sshConfigId="5c922bf9-83cb-4a69-b8ea-aa400a8ae35d" sshConfig="proposals@ipv6.steffann.nl:22 agent" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

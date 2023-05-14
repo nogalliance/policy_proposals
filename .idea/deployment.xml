@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="proposals@ipv6.steffann.nl" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="proposals@ipv6.steffann.nl">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/policy-proposals" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/policy-proposals/static" />
+            <excludedPath local="true" path="$PROJECT_DIR$/policy_proposals/local_settings.py" />
+            <excludedPath path="/policy-proposals/policy_proposals/local_settings.py" />
+            <excludedPath local="true" path="$PROJECT_DIR$/db.sqlite3" />
+            <excludedPath path="/policy-proposals/db.sqlite3" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

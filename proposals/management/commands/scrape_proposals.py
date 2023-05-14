@@ -1,12 +1,12 @@
 import argparse
 import re
+from pprint import pprint
 from urllib.parse import urljoin
 
 import bs4
 import dateparser
 import requests
 from bs4 import BeautifulSoup
-from django.core.management import CommandError
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 
@@ -61,11 +61,18 @@ def find(proposal_element: bs4.Tag, selector_str: str, attr: str = None) -> str:
 class Command(BaseCommand):
     help = "Retrieve RIR proposals."
     output_transaction = True
+    verbosity = 1
 
     def add_arguments(self, parser: argparse.ArgumentParser):
         parser.add_argument('rir', nargs='?', choices=RegionalInternetRegistry.objects.values_list('slug', flat=True))
 
+    def output(self, level: int = 1, msg="", style_func=None, ending=None):
+        if self.verbosity >= level:
+            self.stdout.write(msg=msg, style_func=style_func, ending=ending)
+
     def handle(self, *args, **options):
+        self.verbosity = options.get('verbosity', 1)
+
         if options['rir']:
             rirs = RegionalInternetRegistry.objects.filter(slug=options['rir'])
         else:
@@ -74,9 +81,18 @@ class Command(BaseCommand):
         global_now = timezone.now()
 
         for rir in rirs:
-            response = requests.get(rir.proposals_url)
-            if not response.ok:
-                raise CommandError(f"{rir.name} Proposals URL returned {response.status_code}")
+            self.output(2, f"Processing {rir.name}", style_func=self.style.HTTP_INFO)
+
+            try:
+                response = requests.get(rir.proposals_url, headers={'Accept-Encoding': ''})
+                if not response.ok:
+                    self.output(0, f"{rir.name} Proposals URL returned {response.status_code}", self.style.ERROR)
+                    self.output(3, rir.proposals_url)
+                    continue
+            except requests.exceptions.RequestException as e:
+                self.output(0, f"{rir.name} Proposals URL raised {e}", self.style.ERROR)
+                self.output(3, rir.proposals_url)
+                continue
 
             date_settings = {
                 'TIMEZONE': str(rir.timezone),
@@ -99,7 +115,7 @@ class Command(BaseCommand):
 
                 # Abort if we don't have an identifier
                 if not identifier:
-                    self.stderr.write("Found a proposal without identifier, check the CSS selectors!")
+                    self.output(1, f"Found {rir.name} proposal without identifier, check the CSS selectors!")
                     continue
 
                 # Get the last modified date
@@ -155,4 +171,4 @@ class Command(BaseCommand):
                     proposal.save()
 
                 if created or updated:
-                    print(f"{identifier} -!- {date} -!- {name} -!- {state} -!- {url}")
+                    self.output(2, f"{identifier} -!- {date} -!- {name} -!- {state} -!- {url}")
