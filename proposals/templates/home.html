@@ -58,9 +58,15 @@
             padding: 20px;
         }
 
-        main menu {
+        main h2 {
             padding: 0;
             margin: 0;
+            font-size: 14px;
+        }
+
+        main menu {
+            padding: 0;
+            margin: 0 0 1em 0;
             column-width: 15em;
         }
 
@@ -123,6 +129,7 @@
 
 <main>
     <form>
+        <h2>States</h2>
         <menu>
             {% for state in states %}
                 <label>
@@ -131,6 +138,19 @@
                            onchange="this.form.submit()"
                            name="{{ state.key }}" {% if state.enabled %}checked{% endif %}>
                     {{ state.name }}
+                </label><br>
+            {% endfor %}
+        </menu>
+
+        <h2>RIRs</h2>
+        <menu>
+            {% for rir in rirs %}
+                <label>
+                    <input type="checkbox"
+                           value="on"
+                           onchange="this.form.submit()"
+                           name="{{ rir.key }}" {% if rir.enabled %}checked{% endif %}>
+                    {{ rir.name }}
                 </label><br>
             {% endfor %}
         </menu>

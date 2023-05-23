@@ -4,7 +4,7 @@ from django.utils.text import slugify
 from django.utils.timezone import now
 from django.views.generic import TemplateView
 
-from proposals.models import PolicyProposal
+from proposals.models import PolicyProposal, RegionalInternetRegistry
 
 
 class Home(TemplateView):
@@ -32,9 +32,26 @@ class Home(TemplateView):
             if state['enabled']:
                 selected_states.append(state_name)
 
-        proposals = base_proposals.filter(state__in=selected_states).order_by('-last_change', 'identifier')
+        selected_rirs = []
+        rirs = []
+        for registry in RegionalInternetRegistry.objects.order_by('name'):
+            rir = {
+                'name': registry.name,
+                'key': registry.slug,
+                'enabled': self.request.GET.get(registry.slug, default) != 'off'
+            }
+            rirs.append(rir)
+
+            if rir['enabled']:
+                selected_rirs.append(registry.id)
+
+        proposals = base_proposals \
+            .filter(state__in=selected_states) \
+            .filter(rir_id__in=selected_rirs) \
+            .order_by('-last_change', 'identifier')
 
         return {
             'states': states,
             'proposals': proposals,
+            'rirs': rirs,
         }
