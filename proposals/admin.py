@@ -2,13 +2,18 @@ from django.contrib import admin
 from django.db.models import Max
 from django.utils.translation import gettext_lazy as _
 
-from proposals.models import RegionalInternetRegistry, PolicyProposal
+from proposals.models import RegionalInternetRegistry, PolicyProposal, StateOverrideFromURL
+
+
+class StateOverrideFromURLInlineAdmin(admin.TabularInline):
+    model = StateOverrideFromURL
 
 
 @admin.register(RegionalInternetRegistry)
 class RegionalInternetRegistryAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug', 'timezone', 'date_order', 'admin_proposals', 'admin_last_change')
     ordering = ('name',)
+    inlines = (StateOverrideFromURLInlineAdmin,)
 
     @admin.display(description=_('Proposals'))
     def admin_proposals(self, rir: RegionalInternetRegistry):

@@ -1,6 +1,6 @@
 import argparse
 import re
-from pprint import pprint
+from datetime import timedelta
 from urllib.parse import urljoin
 
 import bs4
@@ -9,6 +9,7 @@ import requests
 from bs4 import BeautifulSoup
 from django.core.management.base import BaseCommand
 from django.utils import timezone
+from django.utils.timezone import now
 
 from proposals.models import RegionalInternetRegistry, PolicyProposal
 
@@ -124,11 +125,15 @@ class Command(BaseCommand):
 
                 # Get the state and normalise it a bit
                 state = find(proposal_element, rir.state_selector)
-                if state.lower().startswith('reached consensus'):
+                if state.lower().startswith('last call'):
+                    state = 'Last Call'
+                elif state.lower().startswith('reached consensus'):
                     state = 'Consensus'
-                elif state.lower() in ('open for discussion', 'under discussion'):
+                elif state.lower() == 'open for discussion' or 'under discussion' in state.lower():
                     state = 'Under discussion'
-                elif state.lower() in ('abandoned', 'did not reach consensus'):
+                elif (state.lower() in ('abandoned', 'did not reach consensus')
+                      or state.lower().startswith('did not reach consensus')
+                      or state.lower().startswith('abandoned')):
                     state = 'No consensus'
 
                 url = find(proposal_element, rir.url_selector, 'href')
@@ -172,3 +177,32 @@ class Command(BaseCommand):
 
                 if created or updated:
                     self.output(2, f"{identifier} -!- {date} -!- {name} -!- {state} -!- {url}")
+
+        last_year = now() - timedelta(days=365)
+        for proposal in PolicyProposal.objects.filter(rir__in=rirs, last_change__gt=last_year):
+            overrides = proposal.rir.stateoverridefromurl_set.all().order_by('priority')
+            if overrides:
+                self.output(2, f"- Processing {proposal} URL")
+                try:
+                    response = requests.get(proposal.url, headers={'Accept-Encoding': ''})
+                    if not response.ok:
+                        self.output(0, f"{proposal} URL returned {response.status_code}",
+                                    self.style.ERROR)
+                        self.output(3, proposal.rir.proposals_url)
+                        continue
+                except requests.exceptions.RequestException as e:
+                    self.output(0, f"{proposal} URL raised {e}", self.style.ERROR)
+                    self.output(3, proposal.url)
+                    continue
+
+                bs = BeautifulSoup(response.content, features="html5lib")
+
+                orig_state = proposal.state
+                for override in overrides:
+                    element = bs.css.select_one(override.selector)
+                    if element and override.contains in element.text:
+                        proposal.state = override.state
+
+                if proposal.state != orig_state:
+                    self.output(3, f"  - Updating state from {orig_state} to {proposal.state}")
+                    proposal.save()
