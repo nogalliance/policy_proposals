@@ -135,6 +135,8 @@ class Command(BaseCommand):
                       or state.lower().startswith('did not reach consensus')
                       or state.lower().startswith('abandoned')):
                     state = 'No consensus'
+                elif state.lower() == 'no ratificada':
+                    state = 'Not ratified'
 
                 url = find(proposal_element, rir.url_selector, 'href')
                 if not url and rir.url_template:
