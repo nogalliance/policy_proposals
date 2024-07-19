@@ -137,6 +137,8 @@ class Command(BaseCommand):
                     state = 'No consensus'
                 elif state.lower() == 'no ratificada':
                     state = 'Not ratified'
+                elif state.lower() == 'pending implementation':
+                    state = 'Pending implementation'
 
                 url = find(proposal_element, rir.url_selector, 'href')
                 if not url and rir.url_template:
